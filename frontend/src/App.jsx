@@ -3,7 +3,6 @@ import Home from './components/Home.jsx'
 import Signin from './components/Signin.jsx'
 import Login from './components/Login.jsx'
 import Log from './components/Log.jsx'
-import Logout from './components/Logout.jsx'
 function App() {
   
 
@@ -14,8 +13,6 @@ function App() {
         <Route path='/login' element={<Log/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/signin' element={<Signin/>}/>
-        <Route path='/logout' element={<Logout/>}/>
-        
         
       </Routes>
 
