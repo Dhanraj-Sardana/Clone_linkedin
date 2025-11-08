@@ -30,7 +30,7 @@ export default function Log() {
             });
 
             if (response.status === 200) {
-              navigate('/home');
+              navigate('/main-page');
 
             }
             else if (response.status === 409) {
