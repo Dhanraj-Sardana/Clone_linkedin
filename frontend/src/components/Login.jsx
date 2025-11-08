@@ -8,7 +8,7 @@ const Login = () => {
             navigate('/login');
     }
     const handleGoogle= ()=>{
-window.open("http://localhost:5000/auth/google", "_self")
+window.open("https://clone-linkedin-backend.onrender.com/auth/google", "_self")
     }
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
@@ -42,7 +42,7 @@ window.open("http://localhost:5000/auth/google", "_self")
           </button>
         </div>
 
-        
+        {/* this is done just to clone the actual linkedin  */}
         <div className="flex flex-col items-center">
         <p className="text-xs text-gray-500 mt-6 max-w-md">
           By clicking Continue to join or sign in, you agree to ConnectUS’s{" "}

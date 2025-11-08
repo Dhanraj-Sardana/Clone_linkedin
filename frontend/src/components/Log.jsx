@@ -17,7 +17,7 @@ export default function Log() {
         setConflict(false);
 
         try {
-            const response = await fetch('http://localhost:5000/auth/login', {
+            const response = await fetch('https://clone-linkedin-backend.onrender.com/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -68,7 +68,7 @@ export default function Log() {
 
                     {google ?
                         <div className='flex items-center'>
-                            <button onClick={() => window.open("http://localhost:5000/auth/google", "_self")} className="flex items-center justify-center w-full border rounded-full p-2 hover:bg-gray-50 transition">
+                            <button onClick={() => window.open("https://clone-linkedin-backend.onrender.com/auth/google", "_self")} className="flex items-center justify-center w-full border rounded-full p-2 hover:bg-gray-50 transition">
                                 <FcGoogle className="text-2xl mr-2 " />
                                 <span>Continue with Google</span>
                             </button>

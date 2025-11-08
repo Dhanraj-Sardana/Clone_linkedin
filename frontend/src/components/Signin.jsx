@@ -22,7 +22,7 @@ export default function Signin() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/auth/signin', {
+            const response = await fetch('https://clone-linkedin-backend.onrender.com/auth/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ export default function Signin() {
                                 </Link>
                             </div>
                         )}
-
+{/* just to clone the linkedin i have added this links */}
                         <p className="text-xs text-gray-500 text-center mt-6">
                             By clicking Agree & Join or Continue, you agree to the LinkedIn{' '}
                             <a href="#" className="text-blue-600 hover:underline">User Agreement</a>,{' '}

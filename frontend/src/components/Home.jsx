@@ -8,10 +8,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // ✅ Fetch the logged-in user info
+  
   const fetchUser = async () => {
     try {
-      const res = await fetch("http://localhost:5000/auth/cookie", {
+      const res = await fetch("https://clone-linkedin-backend.onrender.com/auth/cookie", {
         credentials: "include",
       });
 
@@ -29,7 +29,7 @@ export default function Home() {
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/posts/all", {
+      const res = await fetch("https://clone-linkedin-backend.onrender.com/posts/all", {
         credentials: "include",
       });
       const data = await res.json();
@@ -53,7 +53,7 @@ export default function Home() {
     e.preventDefault();
     if (!content.trim()) return;
 
-    const res = await fetch("http://localhost:5000/posts/create", {
+    const res = await fetch("https://clone-linkedin-backend.onrender.com/posts/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
