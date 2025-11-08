@@ -13,6 +13,6 @@ export  const Callback = (req, res) => {
       secure: false, 
       sameSite: "Lax",
     });
-    res.redirect("https://clone-linkedin-backend.onrender.com/home");
+    res.redirect("https://clone-linkedin-alpha.vercel.app/home");
   
 }
