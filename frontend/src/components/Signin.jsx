@@ -215,6 +215,7 @@ const navigate = useNavigate();
                             </div>
                         )}
 {/* just to clone the linkedin i have added this links */}
+{/* no link is working */}
                         <p className="text-xs text-gray-500 text-center mt-6">
                             By clicking Agree & Join or Continue, you agree to the LinkedIn{' '}
                             <a href="#" className="text-blue-600 hover:underline">User Agreement</a>,{' '}
