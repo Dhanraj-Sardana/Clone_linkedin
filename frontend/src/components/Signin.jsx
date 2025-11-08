@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 export default function Signin() {
+    const [userName,setUser]=useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -28,13 +29,14 @@ export default function Signin() {
                 },
                 credentials: 'include',
                 body: JSON.stringify({
+                    userName,
                     email,
                     password,
                 }),
             });
 
             if (response.status === 200) {
-                window.location.href = '/';
+                window.location.href = '/home';
             } 
             else if (response.status === 409) {
                 setEmailConflict(true);
@@ -76,6 +78,18 @@ export default function Signin() {
                         onSubmit={handleSubmit}
                         className="bg-white shadow-md rounded-xl p-8 w-full max-w-md"
                     >
+                     <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                Username
+                            </label>
+                            <input
+                                type="text"
+                                value={userName}
+                                onChange={(e) => setUser(e.target.value)}
+                                required
+                                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+                            />
+                        </div>
                        
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -190,7 +204,7 @@ export default function Signin() {
                                     Email already in use — please log in instead.
                                 </p>
                                 <Link
-                                    to="/login"
+                                    to="/"
                                     className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition font-medium"
                                 >
                                     Go to Login
@@ -206,7 +220,7 @@ export default function Signin() {
                         </p>
                         <div className='pt-4 flex justify-center'>
                             <pre>Already on ConnectUS? </pre>
-                            <Link to='/login' className='text-blue-600 font-bold hover:underline'>
+                            <Link to='/' className='text-blue-600 font-bold hover:underline'>
                                 Log in
                             </Link>
                         </div>

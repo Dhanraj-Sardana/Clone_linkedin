@@ -12,7 +12,7 @@ dotenv.config();
 
 
 import Auth_Router from './routes/AuthRoute.js';
-
+import PostRouter from './routes/Post.js';
 
 connectDb();
 
@@ -39,6 +39,7 @@ app.use(cookieParser());
 
 
 app.use('/auth',Auth_Router);
+app.use('/posts',PostRouter);
 
 const PORT = process.env.PORT || 5000;
 

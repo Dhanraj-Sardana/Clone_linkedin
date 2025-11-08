@@ -30,16 +30,16 @@ export const login = async (req, res) => {
         return res.status(401).json({ error: "Wrong password" });
       }
 
-      // 
-      // const token = jwt.sign({ id: user._id, email: user.email }, process.env.KEY, {
-      //   expiresIn: "1h",
-      // });
+      
+       const token = jwt.sign({ name: user.name, email: user.email }, process.env.KEY, {
+         expiresIn: "1h",
+       });
 
-      // res.cookie("token", token, {
-      //   httpOnly: true,
-      //   secure: false,
-      //   sameSite: "Lax",
-      // });
+       res.cookie("token", token, {
+         httpOnly: true,
+         secure: false,
+         sameSite: "Lax",
+       });
 
       return res.status(200).json({ message: "Login successful" });
     }

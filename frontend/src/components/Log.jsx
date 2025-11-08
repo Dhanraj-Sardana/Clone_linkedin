@@ -29,7 +29,7 @@ export default function Log() {
             });
 
             if (response.status === 200) {
-                window.location.href = '/';
+                window.location.href = '/home';
             }
             else if (response.status === 409) {
                 setConflict(true);

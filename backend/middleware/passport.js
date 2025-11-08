@@ -28,13 +28,16 @@ passport.use(new GoogleStrategy({
    if(existingUser) {
      return done(null, existingUser);
    }
+   console.log("profile",profile);
+   
    const newUser = new User({
+          name:profile.displayName,
           googleId: profile.id,
           email: profile.emails[0].value,
           provider: "google",
         });
-        await newUser.save();
-    return done(null, newUser);
+        const savedUser=await newUser.save();
+    return done(null, savedUser);
   }
 ));
 

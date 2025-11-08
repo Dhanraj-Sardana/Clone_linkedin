@@ -5,7 +5,7 @@ import { Link, useNavigate  } from "react-router-dom";
 const Login = () => {
     const navigate=useNavigate();
     const handleMannualLogin=()=>{
-            navigate('/log');
+            navigate('/login');
     }
     const handleGoogle= ()=>{
 window.open("http://localhost:5000/auth/google", "_self")
@@ -70,7 +70,7 @@ window.open("http://localhost:5000/auth/google", "_self")
         </div>
       </div>
 
-      {/* Right Section (Hero Image) */}
+     
       <div className="flex w-1/2 flex-col ">
       <div className="flex justify-end pr-15">
       <Link className=" mt-2 px-4 py-1 border border-[#0a66c2] text-[#0a66c2] rounded-full font-medium hover:bg-[#e8f3ff] transition" to='/signin'>Sign in</Link>

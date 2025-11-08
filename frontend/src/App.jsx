@@ -10,9 +10,9 @@ function App() {
   return (
     <>
 <Routes>
-        <Route index element={<Home/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/log' element={<Log/>}/>
+        <Route index element={<Login/>}/>
+        <Route path='/login' element={<Log/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/logout' element={<Logout/>}/>
         

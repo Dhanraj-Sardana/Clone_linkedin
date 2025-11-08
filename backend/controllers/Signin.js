@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 export const signin = async (req, res) => {
-   const { email, password } = req.body;
+   const {userName, email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -17,20 +17,20 @@ export const signin = async (req, res) => {
       bcrypt.hash(password, salt, async (error, hash) => {
         if (error) return res.status(500).send(error);
 
-        const user = new User({ email, password: hash });
+        const user = new User({name: userName, email, password: hash });
         await user.save();
 
-        // const token = jwt.sign(
-        //   { email, userID: user.id },
-        //   process.env.KEY,
-        //   { expiresIn: "1h" }
-        // );
+        const token = jwt.sign(
+           { email:email, name:userName },
+          process.env.KEY,
+           { expiresIn: "1h" }
+         );
 
-        // res.cookie("token", token, {
-        //   httpOnly: true,
-        //   secure: true, 
-        //   sameSite: "Lax",
-        // });
+        res.cookie("token", token, {
+           httpOnly: true,
+           secure: false, 
+           sameSite: "Lax",
+         });
 
         res.status(200).json({ message: "User signed in successfully" });
       });
