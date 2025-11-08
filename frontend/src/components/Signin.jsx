@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
     const [userName,setUser]=useState('');
@@ -10,6 +11,7 @@ export default function Signin() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState('');
     const [emailConflict, setEmailConflict] = useState(false);
+const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,7 +38,8 @@ export default function Signin() {
             });
 
             if (response.status === 200) {
-                window.location.href = '/home';
+                navigate('/home');
+
             } 
             else if (response.status === 409) {
                 setEmailConflict(true);

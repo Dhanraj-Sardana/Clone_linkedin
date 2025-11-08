@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-
+import { useNavigate } from "react-router-dom";
 export default function Log() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,6 +10,7 @@ export default function Log() {
     const [google, setGoogle] = useState(false);
     const [conflict, setConflict] = useState(false);
     const [sign, setSign] = useState(false);
+    const navigate = useNavigate();
 // log is made for mannual login
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,7 +30,8 @@ export default function Log() {
             });
 
             if (response.status === 200) {
-                window.location.href = '/home';
+              navigate('/home');
+
             }
             else if (response.status === 409) {
                 setConflict(true);
