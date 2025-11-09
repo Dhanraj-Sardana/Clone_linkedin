@@ -25,7 +25,6 @@ export default function Log() {
                 body: JSON.stringify({
                     email,
                     password,
-                    googleId: null
                 }),
             });
 
