@@ -11,7 +11,7 @@ export default function Log() {
     const [conflict, setConflict] = useState(false);
     const [sign, setSign] = useState(false);
     const navigate = useNavigate();
-// log is made for mannual login
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
