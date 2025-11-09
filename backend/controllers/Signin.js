@@ -29,7 +29,7 @@ export const signin = async (req, res) => {
         res.cookie("token", token, {
            httpOnly: true,
            secure: true, 
-           sameSite: "Lax",
+           sameSite: "None",
          });
 
         res.status(200).json({ message: "User signed in successfully" });
