@@ -38,7 +38,7 @@ const navigate = useNavigate();
             });
 
             if (response.status === 200) {
-                navigate('/main-page');
+                navigate('/main-page',{ replace: true });
 
             } 
             else if (response.status === 409) {
