@@ -1,6 +1,10 @@
 import Post from "../models/Post.js";
 export const createPost = async (req, res) => {
   try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized. Please log in first." });
+    }
+
     const { content } = req.body;
 
     if (!content || !content.trim()) {
