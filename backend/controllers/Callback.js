@@ -10,8 +10,8 @@ export  const Callback = (req, res) => {
     
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, 
-      sameSite: "Lax",
+      secure: true, 
+      sameSite: "None",
     });
     res.redirect("https://clone-linkedin-alpha.vercel.app/main-page");
   
