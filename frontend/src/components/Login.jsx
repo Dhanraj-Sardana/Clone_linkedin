@@ -8,7 +8,7 @@ const Login = () => {
             navigate('/login');
     }
     const handleGoogle= ()=>{
-window.open(`${import.meta.env.VITE_API_URL}/google`, "_self")
+window.open(`${import.meta.env.VITE_API_URL}/auth/google`, "_self")
     }
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
