@@ -24,7 +24,7 @@ const navigate = useNavigate();
         }
 
         try {
-            const response = await fetch('https://clone-linkedin-backend.onrender.com/auth/signin', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signin`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

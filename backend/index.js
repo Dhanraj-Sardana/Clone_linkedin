@@ -16,13 +16,20 @@ import PostRouter from './routes/Post.js';
 connectDb();
 
 const app = express();
-app.use(cors({
-  origin: [
-    'https://clone-linkedin-alpha.vercel.app',
-    'http://localhost:5173'
-  ],
-  credentials: true,
-}));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://clone-linkedin-alpha.vercel.app" 
+ 
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 
 app.use(express.json());
@@ -35,12 +42,13 @@ app.use(
     secret: process.env.SESSION_SECRET || 'supersecretkey',
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production',
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000, 
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', 
-    },
+cookie: {
+  maxAge: 24 * 60 * 60 * 1000, 
+  httpOnly: true,
+  secure: true,     
+  sameSite: "none", 
+}
+,
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI, 
       collectionName: 'sessions',

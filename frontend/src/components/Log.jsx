@@ -18,7 +18,7 @@ export default function Log() {
         setConflict(false);
 
         try {
-            const response = await fetch('https://clone-linkedin-backend.onrender.com/auth/login', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
